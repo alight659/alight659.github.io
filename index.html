@@ -2,12 +2,10 @@
     <head>
         <title>alight659</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" type="text/css">
-        <link rel="stylesheet" href="https://alight659.github.io/includes/alone.min.css" type="text/css">
-        <link rel="stylesheet" href="https://alight659.github.io/AloneCSS/includes/alone-icons.css" type="text/css"> -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Ubuntu&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
         <style>
             *{
                 margin: 0;
@@ -62,15 +60,6 @@
               color: #ffffff;
               letter-spacing: 0.05em;
             }
-            /* h1::after {
-              content: '';
-              width: 80px;
-              display: block;
-              background: #fff;
-              height: 10px;
-              margin: 30px auto;
-              line-height: 1.1;
-            } */
             p {
               margin: 0 0 30px 0;
               font-size: 16px;
@@ -82,6 +71,7 @@
         </style>
     </head>
     <body>
+      <div id="app">
         <div id="particles">
             <div id="main">
                 <h3 style="font-family: 'Ubuntu', sans-serif; font-weight: 10;">Hi, I am</h3>
@@ -93,8 +83,15 @@
                 <a href="mailto: aanisali@protonmail.com" style="color: white;">Email</a>&nbsp</p>
             </div>
         </div>
+      </div>
         <script type="text/javascript" src="js/jquery.particleground.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
         <script type="text/javascript">
+          new kursor({
+            type: 1,
+            removeDefaultCursor: true,
+            color: "#666666"
+          });
           document.addEventListener('DOMContentLoaded', function () {
             particleground(document.getElementById('particles'), {
             dotColor: '#5cbdaa',
