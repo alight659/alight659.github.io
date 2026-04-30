@@ -1,108 +1,214 @@
-<html>
-    <head>
-        <title>alight659</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Ubuntu&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
-        <style>
-            *{
-                margin: 0;
-                padding: 0;
-                border: 0;
-                font-size: 100%;
-                font: inherit;
-                vertical-align: baseline;
-            }
-            body {
-                line-height: 1;
-            }
-            /* particleground demo */
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alight - Programmer · Deep learning & AI security</title>
+  <meta name="description" content="Alight - Self-taught programmer (Python, C). Deep learning specialist focused on AI security.">
+  <style>
+    :root{
+      --maxw:680px;
+      --transition:180ms ease;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    :root{
+      --bg: #0b0c0d;
+      --text: #e6eef3;
+      --muted: #9aa6b2;
+      --accent: #7dd3fc;
+      --link: #cbeaf7;
+    }
+    :root.light{
+      --bg: #ffffff;
+      --text: #0b0b0b;
+      --muted: #6b7280;
+      --accent: #111827;
+      --link: #0b7285;
+    }
 
-            * {
-              -webkit-box-sizing: border-box;
-                 -moz-box-sizing: border-box;
-                      box-sizing: border-box;
-            }
+    html,body{height:100%;margin:0}
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--bg);
+      color:var(--text);
+      padding:20px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      transition: background var(--transition), color var(--transition);
+      box-sizing:border-box;
+    }
 
-            html, body {
-              width: 100%;
-              height: 100%;
-              overflow: hidden;
-            }
+    .container{
+      width:100%;
+      max-width:var(--maxw);
+      max-height:calc(100vh - 40px);
+      display:flex;
+      flex-direction:column;
+      overflow:auto;
+      -webkit-overflow-scrolling:touch;
+      text-align:left;
+    }
 
-            body {
-              background: #000010;
-              font-family: 'Montserrat', sans-serif;
-              color: #fff;
-              line-height: 1.3;
-              -webkit-font-smoothing: antialiased;
-            }
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
+    h1{margin:0;font-size:28px;font-weight:600;letter-spacing:-0.01em}
+    .role{color:var(--muted);font-size:13px;margin-top:6px;transition:color var(--transition)}
 
-            #particles {
-              width: 100%;
-              height: 100%;
-              overflow: hidden;
-            }
+    .controls{display:flex;gap:14px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;margin-left:12px;font-size:13px}
 
-            #main {
-              position: absolute;
-              left: 0;
-              top: 50%;
-              padding: 0 10px;
-              width: 100%;
-              text-align: center;
-            }
-            h2 {
-              font-size: 50px;
-              font-weight: 120;
-              color: #ffffff;
-              letter-spacing: 0.05em;
-            }
-            p {
-              margin: 0 0 30px 0;
-              font-size: 16px;
-              font-family: 'Ubuntu', sans-serif;
-            }
-            a{
-                text-decoration: none;
-            }
-        </style>
-    </head>
-    <body>
-      <div id="app">
-        <div id="particles">
-            <div id="main">
-                <h3 style="font-family: 'Ubuntu', sans-serif; font-weight: 10;">Hi, I am</h3>
-                <h2 style="font-family: 'Ubuntu', sans-serif; font-weight: 10;"><abbr title="Aanis" style="display: inline; text-decoration: dotted;">alight</abbr></h2>
-                <h3 style="font-family: 'Ubuntu', sans-serif; font-weight: 10;">Student, Programmer | AI, Security, GameDev</h3>
-                <p><a href="https://www.linkedin.com/in/aanis-ali-shah-657b66170/" style="color: white;" target="_blank">LinkedIn</a> |
-                <a href="https://www.github.com/alight659" style="color: white;" target="_blank">GitHub</a> |
-                <a href="https://mastodon.social/@Alight659" style="color: white;" target="_blank" rel="me">Mastodon</a> |
-                <a href="https://alight659.itch.io/" style="color: white;" target="_blank">Itch.io</a> |
-                <a href="https://clipb.in/" style="color: white;" target="_blank">ClipBin</a> |
-                <a href="https://alightsweblogs.vercel.app/" style="color: white;" target="_blank">Blog</a> |
-                <a href="mailto: aanisali@protonmail.com" style="color: white;">Email</a>&nbsp</p>
-            </div>
-        </div>
+    .toggle{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--muted);
+      padding:6px 10px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:13px;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    main{margin-top:36px;line-height:1.6;flex:0 0 auto}
+    .lead{margin:0 0 16px 0;font-size:16px;color:var(--text);transition:color var(--transition)}
+
+    .links{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+    .link{color:var(--link);text-decoration:none;font-weight:600;font-size:13px;transition:color var(--transition)}
+
+    .section-title{margin:0 0 8px 0;font-size:13px;font-weight:600;color:var(--accent)}
+    .muted{color:var(--muted);font-size:13px;margin-top:8px}
+
+    .note-link{
+      color:var(--link);
+      text-decoration:none;
+      font-size:13px;
+    }
+    
+    .note{
+      display:flex;
+      align-items:flex-start;
+      gap:16px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .note-date{
+      flex:0 0 110px;
+      color:var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .note-title{
+      flex:1 1 auto;
+      color:var(--link);
+      text-decoration:none;
+      line-height:1.4;
+    }
+
+    footer{margin-top:34px;color:var(--muted);font-size:13px}
+
+    @media (max-width:640px){
+      header{flex-direction:column;align-items:flex-start;gap:8px}
+      body{padding:12px}
+      .container{max-height:calc(100vh - 24px)}
+    }
+    
+    @media (max-width:480px){
+      .note{ gap:10px; }
+      .note-date{ flex-basis:86px; font-size:12px; }
+      .note-title{ font-size:13px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div>
+        <h1>Aanis</h1>
+        <div class="role">Programmer - Deep learning & AI security</div>
       </div>
-        <script type="text/javascript" src="js/jquery.particleground.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
-        <script type="text/javascript">
-          new kursor({
-            type: 3,
-            removeDefaultCursor: true,
-            color: "#666666"
-          });
-          document.addEventListener('DOMContentLoaded', function () {
-            particleground(document.getElementById('particles'), {
-            dotColor: '#5cbdaa',
-            lineColor: '#5cbdaa'
-          });
-          var main = document.getElementById('main');
-            main.style.marginTop = - main.offsetHeight / 2 + 'px';
-          }, false);
-        </script>
-    </body>
+
+      <div class="controls" aria-hidden>
+        <nav aria-label="primary">
+          <a href="#projects">Projects</a>
+          <a href="#notes">Notes</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button id="themeToggle" class="toggle" aria-pressed="false" title="Toggle light / dark">Light</button>
+      </div>
+    </header>
+
+    <main>
+      <p class="lead">Self-taught programmer (Python, C). Deep learning specialist focused on AI security. Experience in cybersecurity and game development.</p>
+
+      <div class="links" aria-hidden>
+        <a class="link" href="https://github.com/alight659" target="_blank" rel="noopener">GitHub</a>
+        <a class="link" href="https://linkedin.com/in/aanis-ali-shah-657b66170" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="link" href="mailto:aanis.shah@clipb.in">Email</a>
+      </div>
+
+      <section id="projects" style="margin-top:28px;">
+        <h2 class="section-title">Projects</h2>
+        <div class="muted">
+          <a class="note-link" href="https://github.com/alight659/deepfake-detection-suite">Deepfake Detection Suite</a> - AI models with the ability to detect fake videos, audios and images.<br>
+          <a class="note-link" href="https://clipb.in">ClipBin</a> - A simple, anonymous and secure text and code sharing platform.
+        </div>
+      </section>
+
+      <section id="notes" style="margin-top:22px;">
+        <h2 class="section-title">Notes and Blog</h2>
+        <div class="muted">
+          <div class="note">
+            <time class="note-date">2025-02-15</time>
+            <a class="note-title" href="https://alightsweblogs.vercel.app/building-clipbin.html">Building ClipBin.</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:22px;">
+        <h2 class="section-title">Contact</h2>
+        <div class="muted"><a class="note-link" href="mailto:aanis.shah@clipb.in">aanis.shah@clipb.in</a></div>
+      </section>
+
+      <footer>&copy; Alight659 <span id="year"></span></footer>
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const storageKey = 'site-theme';
+      const apply = (light)=>{
+        if(light){ root.classList.add('light'); btn.textContent='Dark'; btn.setAttribute('aria-pressed','true'); }
+        else{ root.classList.remove('light'); btn.textContent='Light'; btn.setAttribute('aria-pressed','false'); }
+        localStorage.setItem(storageKey, light ? 'light' : 'dark');
+      };
+      const saved = localStorage.getItem(storageKey);
+      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      const useLight = saved ? saved === 'light' : false;
+      apply(useLight || (saved===null && prefersLight));
+      btn.addEventListener('click', ()=> apply(!document.documentElement.classList.contains('light')) );
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const container = document.querySelector('.container');
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', e=>{
+          const href = a.getAttribute('href');
+          if(href.length>1){ e.preventDefault(); const el = document.querySelector(href); if(!el) return;
+            const top = el.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop - 12;
+            container.scrollTo({top, behavior:'smooth'});
+          }
+        });
+      });
+    })();
+  </script>
+</body>
 </html>
